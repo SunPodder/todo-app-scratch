@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Todo App</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#000000">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <link rel="x-icon" type="image/png" href="assets/icon.png" >
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <link rel="stylesheet" type="text/css" href="assets/style.css"/>
+</head>
+<body>
+
+<div id="main">
+  
+  <div id="todo-container" >
+    <ul type="none" id="todos" ></ul>
+    <details>
+      <summary>Completed</summary>
+      <ul type="none" id="completed-todos" ></ul>
+    </details>
+  </div>
+
+  <div id="add-todo" hidden>
+    <form>
+      <input id="input" autocomplete="no"  placeholder="Add a Task">
+      <button type="submit" disabled><i class="fa fa-plus"></i></button>
+    </form>
+    <br>
+    <div id="tools" >
+      <span class="dropdown">
+        <div class="dropdown-content">
+          <p><i class="fa fa-calendar-alt"></i> &nbsp;Today</p>
+          <p><i class="far fa-calendar"></i> &nbsp;Tomorrow</p>
+          <p><i class="far fa-calendar"></i> &nbsp;Next Week</p>
+          <label for="dueDateInput">
+            <input type="datetime-local" id="dueDateInput" oninput="addDate(dueDateInput,dueDateCon, 'Set Due Date')">
+            <p><i class="fa fa-calendar-alt"></i> &nbsp;Pick a date</p>
+          </label>
+        </div>
+        <i class="fa fa-calendar"></i> &nbsp;<span id="dueDate" >Set due date</span>
+      </span>
+      <span class="dropdown" >
+        <div class="dropdown-content">
+          <p><i class="fas fa-clock"></i> &nbsp;Later Today</p>
+          <p><i class="fa fa-clock"></i> &nbsp;Tomorrow</p>
+          <p><i class="fa fa-arrow-right"></i> &nbsp;Next Week</p> 
+          <label for="reminedDateInput">
+            <input type="datetime-local" id="remindDateInput" oninput="addDate(remindDateInput,remindDateCon, 'Remind me')">
+            <p><i class="fa fa-calendar"></i> &nbsp;Pick a date</p>
+          </label>
+        </div>
+        <i class="fa fa-bell"></i> &nbsp;<span id="remindDate" >Remind me</span>
+      </span>
+      <span class="dropdown">
+        <div class="dropdown-content">
+          <p>Daily</p>
+          <p>Weekdays</p>
+          <p>Weekly</p>
+          <p>Monthly</p>
+          <p>Yearly</p>
+          <label for="repeatDateInput">
+            <input type="datetime-local" id="repeatDateInput" oninput="addDate(repeatDateInput,repeatDateCon, 'Repeat')">
+            <p>Custom</p>
+          </label>
+        </div>
+        <i class="fas fa-retweet"></i> &nbsp;<span id="repeatDate" >Repeat</span>
+      </span>
+    </div>
+  </div>
+  <span id="open-btn" type="button" onclick="ShowAddMenu()"><i class="fa fa-plus"></i></span>
+</div>
+
+<script type="text/javascript" src="assets/script.js"></script>
+</body>
+</html>
